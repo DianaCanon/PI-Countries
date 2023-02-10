@@ -8,12 +8,12 @@ module.exports = sequelize => {
             allowNull: false,
             autoIncrement: true
         },
-        Nombre: {
+        nombre: {
             type: DataTypes.STRING,
             allowNull: false,
             unique: true,
         },
-        Dificultad: {
+        dificultad: {
             type: DataTypes.INTEGER,
             allowNull: false,
             validate: {
@@ -21,16 +21,14 @@ module.exports = sequelize => {
                 max: 5
             }
         }, 
-        Duración: {
-            type: DataTypes.INTEGER
+        duracion: {
+            type: DataTypes.INTEGER,
+            allowNull: false
         },
-        Temporada: {
-            type: DataTypes.ENUM(["Verano", "Otoño", "Invierno ", "Primavera"])
+        temporada: {
+            type: DataTypes.ENUM(["Verano", "Otoño", "Invierno", "Primavera"]),
+            allowNull: false
         },
-        createdInDb: {
-            type: DataTypes.BOOLEAN,
-            allowNull: false,
-            defaulValue: true
-        }
+        
     })
 }

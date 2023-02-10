@@ -9,28 +9,27 @@ module.exports = (sequelize) => {
       IdCountry: {
         type: DataTypes.STRING(3),
         primaryKey: true,
-        allowNull: false,
       },
-      Nombre: {
+      nombre: {
         type: DataTypes.STRING,
         allowNull: false,
       },
-      Imagen_bandera: {
+      img_bandera: {
         type: DataTypes.STRING,
         allowNull: false,
       },
-      Capital: {
+      capital: {
         type: DataTypes.STRING,
         allowNull: false,
         default: "no se encontraron datos",
       },
-      Subregión: {
+      subregion: {
         type: DataTypes.STRING,
       },
-      Área: {
+      area: {
         type: DataTypes.FLOAT,
       },
-      Población: {
+      poblacion: {
         type: DataTypes.INTEGER,
       },
     },

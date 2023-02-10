@@ -1,34 +1,28 @@
-const axios = require("axios");
-const { Country } = require("../db");
+const { Country, Activity } = require("../db");
 
-const dbCountry = async () => {
-  const dbfind = await Country.findAll();
+const createActivity = async (
+  nombre,
+  dificultad,
+  duracion,
+  temporada,
+  idCountry
+) => {
+  const newAct = await Activity.create({
+    nombre,
+    dificultad,
+    duracion,
+    temporada,
+  });
+  newAct.setActivity(idCountry);
 
-  if (dbfind.length) return dbfind;
-  else {
-    const result = await axios.get("https://restcountries.com/v3/all");
-    const arrayDatos = result.data;
+  const country = await Country.findByPk(idCountry);
+  country.setCountry(newAct);
 
-    if (!arrayDatos.length) return "datos no encontrados";
-
-    arrayDatos.forEach(async (c) => {
-      const idRepetido = await Country.findByPk(c.cca3);
-
-      if (idRepetido === null) {
-        let objCountry = {};
-        objCountry.IdCountry = c.cca3;
-        objCountry.Nombre = c.name.common;
-        objCountry.Imagen_bandera = c.flags[1];
-        objCountry.Capital = c.capital ? c.capital[0] : "Capital no encontrada";
-        objCountry.Subregión = c.subregion;
-        objCountry.Área = c.area;
-        objCountry.Población = c.population;
-        const countries = await Country.create(objCountry);
-      }
-    });
-    const dbfind = await Country.findAll();
-    return dbfind;
-  }
+  return newAct;
 };
 
-module.exports = { dbCountry };
+const findActivities = async () => {
+  return await Activity.findAll();
+};
+
+module.exports = { createActivity, findActivities };

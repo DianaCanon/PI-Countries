@@ -6,26 +6,29 @@ const clearData = (data) => {
   return data.map((c) => {
     return {
       IdCountry: c.cca3,
-      nombre: c.name.common,
-      img_bandera: c.flags[1],
+      name: c.name.common,
+      img_flag: c.flags[1],
       capital: c.capital ? c.capital[0] : "Capital no encontrada",
       subregion: c.subregion,
       area: c.area,
-      poblacion: c.population,
+      population: c.population,
     };
   });
 };
 
-const dbCountry = async () => {
+const createDbCountries = async () => {
   const dbCountries = await Country.findAll();
   if (dbCountries.length > 0) return dbCountries;
   else {
     const result = (await axios.get("https://restcountries.com/v3/all")).data;
     const dataclean = clearData(result);
     await Country.bulkCreate(dataclean);
+    return await Country.findAll()
+    }
+};
 
-    return await Country.findAll();
-  }
+const consultCountries = async () => {
+  return await Country.findAll();
 };
 
 const getCountryById = async (id) => {
@@ -40,13 +43,16 @@ const getCountryById = async (id) => {
 
 const dbCountriesByName = async (name) => {
   const findName = await Country.findAll({
-    where: {
-      nombre: {
-        [Op.iLike]: `%${name}%`,
-      },
-    },
+    where : {name : {
+      [Op.iLike] : `%${name}%`
+    }}
   });
   return findName;
 };
 
-module.exports = { dbCountry, dbCountriesByName, getCountryById };
+module.exports = {
+  createDbCountries,
+  consultCountries,
+  dbCountriesByName,
+  getCountryById,
+};

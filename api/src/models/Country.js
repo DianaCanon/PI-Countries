@@ -4,17 +4,18 @@ const { DataTypes, DATE } = require("sequelize");
 module.exports = (sequelize) => {
   // defino el modelo
   sequelize.define(
-    "country",
+    "Country",
     {
       IdCountry: {
         type: DataTypes.STRING(3),
         primaryKey: true,
+        allowNull: false,
       },
-      nombre: {
+      name: {
         type: DataTypes.STRING,
         allowNull: false,
       },
-      img_bandera: {
+      img_flag: {
         type: DataTypes.STRING,
         allowNull: false,
       },
@@ -28,8 +29,12 @@ module.exports = (sequelize) => {
       },
       area: {
         type: DataTypes.FLOAT,
+        get() {
+          const areaValue = this.getDataValue("area");
+          return !areaValue ? areaValue : `${areaValue} km2`;
+        },
       },
-      poblacion: {
+      population: {
         type: DataTypes.INTEGER,
       },
     },

@@ -1,28 +1,34 @@
 const { Country, Activity } = require("../db");
 
 const createActivity = async (
-  nombre,
-  dificultad,
-  duracion,
-  temporada,
+  name,
+  difficulty,
+  duration,
+  season,
   idCountry
 ) => {
   const newAct = await Activity.create({
-    nombre,
-    dificultad,
-    duracion,
-    temporada,
+    name,
+    difficulty,
+    duration,
+    season,
   });
-  newAct.setActivity(idCountry);
-
-  const country = await Country.findByPk(idCountry);
-  country.setCountry(newAct);
+  const findCountry = await Country.findByPk(idCountry);
+  findCountry.addActivity(newAct);
 
   return newAct;
 };
 
 const findActivities = async () => {
-  return await Activity.findAll();
+  return await Activity.findAll({
+      include: [
+      {
+        model: Country,
+        attributes: ["IdCountry", "name"],
+                
+      },
+    ],
+  });
 };
 
 module.exports = { createActivity, findActivities };

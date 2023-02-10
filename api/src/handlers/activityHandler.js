@@ -2,22 +2,21 @@ const {
   createActivity,
   findActivities,
 } = require("../controller/activityController");
-const { Activity } = require("../db.js");
 
 const postActHandler = async (req, res) => {
-  const { nombre, dificultad, duracion, temporada, idCountry } = req.body;
-
-  if (!req.body) throw new Error("diligenciar los datos");
-
-  if (!nombre || !dificultad || !duracion || !temporada || !idCountry)
-    throw new Error("faltan datos obligatorios");
+  const { name, difficulty, duration, season, idCountry } = req.body;
 
   try {
+    if (!req.body) throw new Error("diligenciar los datos");
+
+    if (!name || !difficulty || !duration || !season || !idCountry)
+      throw new Error("faltan datos obligatorios");
+      
     const newActivTour = await createActivity(
-      nombre,
-      dificultad,
-      duracion,
-      temporada,
+      name,
+      difficulty,
+      duration,
+      season,
       idCountry
     );
     res.send(newActivTour);

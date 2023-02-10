@@ -2,8 +2,10 @@ const { Router } = require("express");
 const router = Router();
 const {
   getCountriesHandler,
-  getCountryId,
+  getCountryId, postContriesHandler
 } = require("../handlers/countryHandler");
+
+router.post("/", postContriesHandler)
 
 router.get("/", getCountriesHandler);
 

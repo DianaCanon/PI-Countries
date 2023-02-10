@@ -13,19 +13,21 @@ const createActivity = async (
     duration,
     season,
   });
-  const findCountry = await Country.findByPk(idCountry);
-  findCountry.addActivity(newAct);
+  const findCountry = idCountry.map(async (idC) => {
+    const country = await Country.findByPk(idC);
+    country.addActivity(newAct);
+  });
 
   return newAct;
 };
 
 const findActivities = async () => {
   return await Activity.findAll({
-      include: [
+    include: [
       {
         model: Country,
         attributes: ["IdCountry", "name"],
-                
+       through: {attributes: []}
       },
     ],
   });

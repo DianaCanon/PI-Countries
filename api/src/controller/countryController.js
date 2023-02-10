@@ -8,6 +8,7 @@ const clearData = (data) => {
       IdCountry: c.cca3,
       name: c.name.common,
       img_flag: c.flags[1],
+      continent: c.continents[0],
       capital: c.capital ? c.capital[0] : "Capital no encontrada",
       subregion: c.subregion,
       area: c.area,
@@ -36,6 +37,8 @@ const getCountryById = async (id) => {
     include: [
       {
         model: Activity,
+        /* attributes: ["name", "difficulty","duration","season"], */
+        through: {attributes: []} // para manejar la visualizacion de la tabla intermedia
       },
     ],
   });

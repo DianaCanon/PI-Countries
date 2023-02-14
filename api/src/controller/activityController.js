@@ -27,7 +27,7 @@ const findActivities = async () => {
       {
         model: Country,
         attributes: ["IdCountry", "name"],
-       through: {attributes: []}
+        through: { attributes: [] },
       },
     ],
   });

@@ -5,27 +5,16 @@ const {
   createDbCountries,
 } = require("../controller/countryController");
 
-const postContriesHandler = async (req, res) => {
-  try {
-    const result = await createDbCountries();
 
-    if (result)
-      res.status(201).send({ msg: "Base de datos creada exitosamente" });
-    else {
-      res.status(404).send({ msg: "Base de datos no fue creada" });
-    }
-  } catch (error) {
-    res.status(404).send({ error: error.message });
-  }
-};
 
 const getCountriesHandler = async (req, res) => {
   const { name } = req.query;
 
   try {
+    const copyDb = await createDbCountries();
     const result = await consultCountries();
     if (!name) {
-      return res.send(result);
+      return res.status(200).send(result);
     } else {
       const resultName = await dbCountriesByName(name);
       !resultName.length
@@ -54,4 +43,4 @@ const getCountryId = async (req, res) => {
   }
 };
 
-module.exports = { getCountriesHandler, getCountryId, postContriesHandler };
+module.exports = { getCountriesHandler, getCountryId };

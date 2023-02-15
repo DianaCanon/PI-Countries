@@ -19,7 +19,7 @@ const postActHandler = async (req, res) => {
       season,
       idCountry
     );
-    res.send(newActivTour);
+    res.send("Actividad creada exitosamente");
   } catch (error) {
     res.status(404).send({ error: error.message });
   }

@@ -1,0 +1,18 @@
+.containerForm {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+}
+
+.warning {
+    border: 1px solid rgb(170, 24, 24);
+    border-radius: 0.3em;
+    background-color: rgb(211, 149, 157);
+    text-align: center;
+  }
+  
+  .danger {
+    font-size: .0.5rem;
+    color: rgb(206, 34, 34);
+    }

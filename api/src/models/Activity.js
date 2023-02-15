@@ -5,13 +5,12 @@ module.exports = sequelize => {
         idActivity:{
             type: DataTypes.INTEGER,
             primaryKey: true,
-            allowNull: false,
             autoIncrement: true
         },
         name: {
             type: DataTypes.STRING,
             allowNull: false,
-            unique: 'act_country'
+            unique: true
         },
         difficulty: {
             type: DataTypes.INTEGER,
@@ -19,11 +18,17 @@ module.exports = sequelize => {
             validate: {
                 min: 1,
                 max: 5
-            }
+            },
+            defaultValue: 3,
         }, 
         duration: {
             type: DataTypes.INTEGER,
-            allowNull: false
+            allowNull: false,
+            defaultValue: 1,
+            get() {
+                const durationValue = this.getDataValue("duration")
+                return !durationValue ? durationValue : `${durationValue} hora(s)`
+            }
         },
         season: {
             type: DataTypes.ENUM(["Verano", "Otoño", "Invierno", "Primavera"]),

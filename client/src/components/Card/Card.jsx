@@ -1,5 +1,7 @@
+import React from "react";
 import { Component } from "react";
 import { connect } from "react-redux";
+import { Link} from "react-router-dom";
 import style from "./Card.module.css";
 
 export class Card extends Component {
@@ -11,9 +13,15 @@ export class Card extends Component {
   render() {
     return (
       <div className={style.containerCard}>
-        <h2>Nombre: {this.props.name}</h2>
+        <Link to={`/detail/${this.props.id}`}>
+          <h2>Nombre: {this.props.name} {`(${this.props.id})`}</h2>
+        </Link>
         <div className={style.containerFlag}>
-          <img src={this.props.img_flag} alt="imagen bandera" className={style.imagenFlags}/>
+          <img
+            src={this.props.img_flag}
+            alt="imagen bandera"
+            className={style.imagenFlags}
+          />
         </div>
         <h2>Continente: {this.props.continent}</h2>
       </div>

@@ -1,0 +1,12 @@
+.containerLanding {
+    height: 100vh;
+    background: url(../../../imagen/banner-1082644_1280.jpg) center center no-repeat;
+    background-size: cover;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    color: whitesmoke;
+    text-shadow: 2px 2px 4px #221e1e;
+    
+}

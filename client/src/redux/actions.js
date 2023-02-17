@@ -25,7 +25,7 @@ export const getDetailCountry = (id) => {
         dispatch({
           type: GET_DETAIL_COUNTRY,
           payload: json,
-        })
+        }).catch((err) => err.message)
       );
   };
 };

@@ -1,5 +1,6 @@
 import { useEffect } from "react"
 import { useDispatch } from "react-redux"
+import { NavLink } from "react-router-dom"
 import Cards from "../../components/Cards/Cards"
 import { getAllCountries } from "../../redux/actions.js"
 
@@ -14,8 +15,9 @@ const Home = (props) => {
 
     return(
         <div>
-            <h1>Paises del mundo</h1>
+             <NavLink to="/"><button>Volver</button></NavLink>
             <Cards></Cards>
+           
         </div>
     )
 }

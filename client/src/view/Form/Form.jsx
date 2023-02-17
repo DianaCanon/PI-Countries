@@ -3,6 +3,7 @@ import { ValidateActivity } from "../../components/Validate/validate";
 import style from "./Form.module.css";
 import axios from "axios";
 
+
 const Form = () => {
   const [activity, setActivity] = useState({
     name: "",

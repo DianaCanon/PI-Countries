@@ -26,10 +26,11 @@ module.exports = (sequelize) => {
       capital: {
         type: DataTypes.STRING,
         allowNull: false,
-        default: "no se encontraron datos",
+        defaultValue: "no se encontraron datos",
       },
       subregion: {
         type: DataTypes.STRING,
+        defaultValue: "no registra"
       },
       area: {
         type: DataTypes.FLOAT,

@@ -1,21 +1,24 @@
 .containerCard {
-    display: flex;
-    flex-direction: column;
-    justify-content: space-around;
-    border: solid 0.1rem #cfd3db;
-    border-radius: 1rem;
-    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
-    font-size: smaller;
-    width: min-content;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  border: solid 0.1rem #cfd3db;
+  border-radius: 1rem;
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+  font-size: smaller;
+  width: min-content;
+  background-color: #dbdbc88c;
 }
 
 .containerFlag {
-    margin: 0 1rem;
-    border: #000000cc solid 1px;
-    border-radius: 1rem;
-    background: #241e1e
+  margin: 0 1rem;
+  border: #000000cc solid 1px;
+  border-radius: 1rem;
+  background: #241e1e;
 }
 
 .imagenFlags {
-    border-radius: 1rem;
+  border-radius: 1rem;
+  width: 15rem;
+  height: 8rem;
 }

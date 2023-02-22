@@ -3,11 +3,11 @@ import { useSelector } from "react-redux";
 import style from './Cards.module.css'
 
 const Cards = (props) => {
-  const countries = useSelector((state) => state.countries);
+  const  currentCountries= useSelector((state) => state.currentCountries)
 
   return (
     <div className={style.containerCard}>
-      {countries.map((c) => {
+      {currentCountries.map((c) => {
         return (
           <Card
             id={c.IdCountry}

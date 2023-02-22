@@ -1,16 +1,19 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { ValidateActivity } from "../../components/Validate/validate";
 import style from "./Form.module.css";
-import axios from "axios";
-
+import { useDispatch, useSelector } from "react-redux";
+import { createActivity, getAllCountries } from "../../redux/actions";
+import Select from "react-select";
 
 const Form = () => {
+  const [selectedCountries, setSelectedCountries] = useState([]);
+
   const [activity, setActivity] = useState({
     name: "",
     difficulty: 3,
     duration: "",
-    season: ["Verano", "Otoño", "Invierno", "Primavera"],
-    country: [],
+    season: "",
+    idCountry: [],
   });
 
   const [errors, setErrors] = useState({
@@ -28,18 +31,28 @@ const Form = () => {
     setErrors(ValidateActivity({ ...activity, [property]: value }));
   };
 
-  const handlerClick = (event) => {
-    const { name, value } = event.target;
-    setActivity({ ...activity, [name]: value });
-    setErrors(ValidateActivity({ ...activity, [name]: value }));
-  };
+  const countries = useSelector((state) => state.countries);
+  const [options, setOptions] = useState([]);
+
+  const dispatch = useDispatch();
+
+  useEffect(() => {
+    if (countries.length === 0) {
+      dispatch(getAllCountries());
+    }
+    setOptions(
+      ...options,
+      countries.map((c) => {
+        return { label: c.name, value: c.IdCountry };
+      })
+    );
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [countries]);
 
   const handlerSubmit = (event) => {
     event.preventDefault();
-    axios
-      .post("http://localhost:3001/activities", activity)
-      .then((res) => alert(res))
-      .catch((err) => alert(err));
+    activity.idCountry = selectedCountries.map((c) => c.value);
+    dispatch(createActivity(activity));
   };
 
   return (
@@ -91,10 +104,16 @@ const Form = () => {
         <br />
 
         <label htmlFor="season">Temporada: </label>
-        <select id="season" name="season" onClick={handlerClick}>
-          <option value="Verano">Verano</option>
-          <option value="Otoño">Otoño</option>
-          <option value="Invierno">Invierno</option>
+        <select
+          id="season"
+          name="season"
+          onClick={handlerChange}
+          options={activity.season}
+        >
+          <option value={null} label="Elige una temporada"></option>
+          <option label="Verano" value="Verano"></option>
+          <option label="Otoño" value="Otoño"></option>
+          <option label="Invierno" value="Invierno"></option>
           <option value="Primavera">Primavera</option>
         </select>
         {errors.season ? (
@@ -104,14 +123,15 @@ const Form = () => {
         )}
         <br />
 
-        <label htmlFor="country">Pais(es) en que se practica: </label>
-        <input
-          type="text"
-          id="country"
-          value={activity.country}
-          name="country"
-          onChange={handlerChange}
-        ></input>
+        <label htmlFor="countries">Pais(es) en que se practica: </label>
+        <Select
+          defaultValue={selectedCountries}
+          onChange={setSelectedCountries}
+          isMulti
+          isSearchable
+          name="countries"
+          options={options}
+        />
         <br />
         {errors.country ? <span>{errors.country}</span> : ""}
 

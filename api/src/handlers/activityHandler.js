@@ -9,8 +9,13 @@ const postActHandler = async (req, res) => {
   try {
     if (!req.body) throw new Error("diligenciar los datos");
 
-    if (!name || !difficulty || !duration || !season || !idCountry)
-      throw new Error("faltan datos obligatorios");
+    if (!name ) throw new Error("Nombre de la Actividad es un dato obligatorio");
+    if (!difficulty) throw new Error("Dificultad de la Actividad es un dato obligatorio");
+    if (!duration) throw new Error("Duración de la Actividad es un dato obligatorio")
+    if (!season) throw new Error("Temporada es un dato obligatorio")
+    if (!idCountry) throw new Error("Id del País es un dato obligatorio")
+   
+      
       
     const newActivTour = await createActivity(
       name,
@@ -21,7 +26,7 @@ const postActHandler = async (req, res) => {
     );
     res.send("Actividad creada exitosamente");
   } catch (error) {
-    res.status(404).send({ error: error.message });
+    res.status(404).send(error.message);
   }
 };
 

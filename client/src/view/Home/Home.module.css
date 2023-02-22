@@ -1,0 +1,13 @@
+.containerHome {
+  display: flex;
+  flex-direction: column;
+  background: url(../../../imagen/imgHome.jpg) center center no-repeat;
+  background-size: cover;
+  background-attachment: fixed;
+  overflow: scroll;
+  height: 100vh;
+}
+
+.containerBack {
+  margin-top: 5rem;
+}

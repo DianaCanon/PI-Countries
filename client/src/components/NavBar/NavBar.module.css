@@ -1,6 +1,26 @@
 .containerNavBar {
-    display: flex;
-    flex-direction: row;
-    justify-content: center;
-    gap: 5rem;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+  padding: 1.5rem 0;
+  background: rgb(5, 3, 25);
+  background: linear-gradient(
+    251deg,
+    rgba(5, 3, 25, 0.989233193277311) 0%,
+    rgba(51, 52, 125, 1) 43%,
+    rgba(0, 99, 255, 1) 100%
+  );
+  color: white;
+  text-decoration-color: white;
+  position: fixed;
+  z-index: auto;
+  width: 100%;
+}
+
+.containerNav {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  z-index: 100;
 }

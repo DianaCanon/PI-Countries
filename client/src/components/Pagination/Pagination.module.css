@@ -1,0 +1,12 @@
+.containerPag {
+  display: flex;
+  justify-content: center;
+  padding: 1rem;
+  flex-wrap: wrap;
+}
+
+button.active {
+  background-color: rgb(51, 48, 241);
+  color: antiquewhite;
+  border-color: transparent;
+}

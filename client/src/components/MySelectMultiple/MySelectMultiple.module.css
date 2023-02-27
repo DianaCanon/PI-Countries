@@ -1,0 +1,19 @@
+.containerSelect {
+  position: relative;
+}
+
+.containerHeader {
+  position: relative;
+  width: 98%;
+}
+
+.containerOptions {
+  position: absolute;
+  background-color: white;
+  height: 8rem;
+  overflow: scroll;
+}
+
+.select {
+  visibility: hidden;
+}

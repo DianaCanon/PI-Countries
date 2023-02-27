@@ -11,14 +11,17 @@ class Landing extends Component {
   render() {
     return (
       <div className={style.containerLanding}>
-        {/* <div>
+        <div>
           <video
-            url="../../../imagen/mundo-5106.mp4"
-            playing
-            width="100%"
-            height="100%"
+            className={style.containerLanding}
+            id="myVideo"
+            control-preload="none"
+            playing="true"
+            /*  width="100%"
+            height="100%" */
           />
-        </div> */}
+          <source src="../../../imagen/mundo-5106.mp4" type="video/mp" />
+        </div>
 
         <h1>Bienvenidos a la App de Countries</h1>
         <br />

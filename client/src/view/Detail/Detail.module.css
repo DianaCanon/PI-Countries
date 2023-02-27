@@ -3,21 +3,24 @@
   flex-direction: column;
   background: url(../../../imagen/imgDetail.jpg) center center no-repeat;
   background-size: cover;
+  background-attachment: fixed;
+  overflow: scroll;
   height: 100vh;
   align-items: center;
   justify-content: center;
 }
 
 .containerBox {
-  margin-top: 6rem;
+  margin: 6rem 1rem auto 1rem;
   display: flex;
-  flex-direction: column;
-  background-color: antiquewhite;
+  flex-direction: row;
+  background-color: #8d94b9bd;
   border: solid 0.1rem #cfd3db;
   border-radius: 1rem;
   box-shadow: 0 4px 8px 0 rgb(0 0 0 / 20%), 0 6px 20px 0 rgb(0 0 0 / 19%);
   justify-content: center;
   align-items: center;
+  padding: 1.5rem;
 }
 
 .containerData {
@@ -29,6 +32,12 @@
   align-items: center;
 }
 
-.containerData p{
+.containerData p {
   text-align: start;
+}
+
+img.containerImg {
+  height: 12rem;
+  width: 12rem;
+  border-radius: 6rem;
 }

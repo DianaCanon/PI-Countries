@@ -8,7 +8,21 @@ import {
   COUNT_PAGE,
   NUMBER_PAGE,
   MOV_PAGE,
+  FILTER_CONTINENT_ACT,
+  OPTIONS_CONTINENTS,
+  OPTIONS_ACTIVITIES,
+  ORDER_COUNTRIES_POPULATION,
 } from "./actions.js";
+
+import {
+  getCurrentCountries,
+  pagesNumber,
+  movedPage,
+  filterCountries,
+  optionsContinents,
+  optionsActivities,
+  sortCountriesPopulation,
+} from "./utils";
 
 const initialState = {
   countries: [],
@@ -16,21 +30,23 @@ const initialState = {
   countryDetail: {},
   countriesByName: [],
   currentCountries: [],
+  countriesFilter: [],
+  optionsByContinent: [],
+  optionsByActivities: [],
   limit: 10,
   currentPage: 1,
   maxPageLimit: 0,
-  minPageLimit: 0,
   pages: [],
 };
 
 const reducer = (state = initialState, { type, payload }) => {
   switch (type) {
     case GET_ALL_COUNTRIES:
-      return { ...state, countries: payload };
+      return { ...state, countries: payload, currentCountries: payload };
     case GET_DETAIL_COUNTRY:
       return { ...state, countryDetail: payload };
     case GET_COUNTRY_BY_NAME:
-      return { ...state, countriesByName: payload };
+      return { ...state, currentCountries: payload };
     case ADD_ACTIVITY:
       return { ...state, activities: [...state.activities, payload] };
     case GET_COUNTRIES_PAGE:
@@ -49,36 +65,16 @@ const reducer = (state = initialState, { type, payload }) => {
       };
     case MOV_PAGE:
       return { ...state, currentPage: movedPage(payload) };
+    case OPTIONS_CONTINENTS:
+      return { ...state, optionsByContinent: optionsContinents(payload) };
+    case FILTER_CONTINENT_ACT:
+      return { ...state, currentCountries: filterCountries(payload) };
+    case OPTIONS_ACTIVITIES:
+      return { ...state, optionsByActivities: optionsActivities(payload) };
+    case ORDER_COUNTRIES_POPULATION:
+      return { ...state, currentCountries: sortCountriesPopulation(payload) };
     default:
       return { ...state };
-  }
-};
-
-const getCurrentCountries = ({ page, limit, countries }) => {
-  console.log("Page: ", page);
-  const start = +page === 1 ? 0 : (page - 1) * limit - 1;
-  const end = +page === 1 ? limit - 1 : limit * page - 1;
-  console.log("start: ", start);
-  console.log("end: ", end);
-  return countries.slice(start, end);
-};
-
-const pagesNumber = ({ maxPageLimit }) => {
-  const pagesInit = [];
-  for (let i = 1; i <= maxPageLimit; i++) {
-    pagesInit.push(i);
-  }
-  return pagesInit;
-};
-
-const movedPage = ({ page, direction, maxPageLimit, limit, countries }) => {
-  let numberPage = +page;
-  if (direction === "Prev" && numberPage >= 1) {
-    numberPage = numberPage++;
-  }
-
-  if (direction === "Next" && +numberPage <= maxPageLimit) {
-    return +page + 1;
   }
 };
 

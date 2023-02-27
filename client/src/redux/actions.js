@@ -11,7 +11,9 @@ export const MOV_PAGE = "MOV_PAGE";
 export const ADD_ACTIVITY = "ADD_ACTIVITY";
 export const DELETE_ACTIVITY = "DELETE_ACTIVITY";
 export const FILTER_CONTINENT_ACT = "FILTER_CONTINENT_ACT";
-export const ORDER = "ORDER";
+export const OPTIONS_CONTINENTS = "OPTIONS_CONTINENTS";
+export const OPTIONS_ACTIVITIES = "OPTIONS_ACTIVITIES";
+export const ORDER_COUNTRIES_POPULATION = "ORDER_COUNTRIES_POPULATION";
 
 export const getAllCountries = () => {
   return async (dispatch) => {
@@ -27,13 +29,13 @@ export const getDetailCountry = (id) => {
   return (dispatch) => {
     return fetch(`http://localhost:3001/countries/${id}`)
       .then((response) => response.json())
-      .then(
-        (json) =>
-          dispatch({
-            type: GET_DETAIL_COUNTRY,
-            payload: json,
-          }) /* .catch((err) => alert(err.request.response) ) */
-      );
+      .then((json) =>
+        dispatch({
+          type: GET_DETAIL_COUNTRY,
+          payload: json,
+        })
+      )
+      .catch((err) => alert(err.request.response));
   };
 };
 
@@ -50,7 +52,6 @@ export const getCountryByName = (name) => {
 };
 
 export const createActivity = (activity) => {
-  console.log(activity);
   return (dispatch) => {
     axios
       .post("http://localhost:3001/activities", activity)
@@ -86,10 +87,10 @@ export const countPage = (countries, limit) => {
   };
 };
 
-export const numberPage = (maxPageLimit, pages) => {
+export const numberPage = (maxPageLimit) => {
   return {
     type: NUMBER_PAGE,
-    payload: { maxPageLimit, pages },
+    payload: maxPageLimit,
   };
 };
 
@@ -97,5 +98,33 @@ export const movPage = (page, direction, maxPageLimit) => {
   return {
     type: MOV_PAGE,
     payload: { page, direction, maxPageLimit },
+  };
+};
+
+export const OptionsByContinents = (countries) => {
+  return {
+    type: OPTIONS_CONTINENTS,
+    payload: countries,
+  };
+};
+
+export const filterByContinentActivity = (countries, continent, activity) => {
+  return {
+    type: FILTER_CONTINENT_ACT,
+    payload: { countries, continent, activity },
+  };
+};
+
+export const OptionsByActivities = (countries) => {
+  return {
+    type: OPTIONS_ACTIVITIES,
+    payload: countries,
+  };
+};
+
+export const sortByCountriesPopulation = (countries, criteria) => {
+  return {
+    type: ORDER_COUNTRIES_POPULATION,
+    payload: { countries, criteria },
   };
 };

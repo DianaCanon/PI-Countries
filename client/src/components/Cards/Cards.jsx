@@ -1,9 +1,9 @@
 import Card from "../Card/Card";
 import { useSelector } from "react-redux";
-import style from './Cards.module.css'
+import style from "./Cards.module.css";
 
 const Cards = (props) => {
-  const  currentCountries= useSelector((state) => state.currentCountries)
+  const currentCountries = useSelector((state) => state.currentCountries);
 
   return (
     <div className={style.containerCard}>

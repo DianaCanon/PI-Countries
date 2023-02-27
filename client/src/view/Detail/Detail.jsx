@@ -1,6 +1,6 @@
 import { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { NavLink, useParams } from "react-router-dom";
+import { useParams } from "react-router-dom";
 import { getDetailCountry } from "../../redux/actions";
 import style from "./Detail.module.css";
 
@@ -17,24 +17,34 @@ const Detail = (props) => {
   return (
     <div className={style.containerDetail}>
       <div className={style.containerBox}>
-        <h2>Nombre: {countryDetail.name}</h2>
+        <div>
+          <h1> {countryDetail.name?.toUpperCase()}</h1>
+          <img
+            src={countryDetail.img_flag}
+            alt="bandera"
+            className={style.containerImg}
+          />
+        </div>
+
         <div className={style.containerData}>
           <div>
-            <img src={countryDetail.img_flag} alt="bandera" />
-          </div>
-          <div>
-            <p>Cod: {countryDetail.IdCountry}</p>
+            <h3> - {countryDetail.IdCountry} - </h3>
             <p>Continente: {countryDetail.continent}</p>
             <p>Subregion: {countryDetail.subregion}</p>
             <p>Capital: {countryDetail.capital}</p>
             <p>Área: {countryDetail.area}</p>
             <p>Población: {countryDetail.population}</p>
-            <ul>
-              Actividades Turísticas:
-              {countryDetail.Activities?.map((act) => {
-                return <li>{act}</li>;
-              })}
-            </ul>
+            <p>Tourist Activities:</p>
+            {countryDetail.Activities?.map((act, i) => {
+              return (
+                <ul key={`activity${i}`} style={{ textAlign: "left" }}>
+                  <li>Name: {act.name}</li>
+                  <li>Duration: {act.duration}</li>
+                  <li>Difficulty: {act.difficulty}</li>
+                  <li>Season: {act.season}</li>
+                </ul>
+              );
+            })}
           </div>
         </div>
       </div>

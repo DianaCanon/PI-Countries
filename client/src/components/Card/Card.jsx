@@ -13,11 +13,6 @@ export class Card extends Component {
   render() {
     return (
       <div className={style.containerCard}>
-        <Link to={`/detail/${this.props.id}`}>
-          <h2>
-            {this.props.name} {`(${this.props.id})`}
-          </h2>
-        </Link>
         <div className={style.containerFlag}>
           <img
             src={this.props.img_flag}
@@ -25,7 +20,14 @@ export class Card extends Component {
             className={style.imagenFlags}
           />
         </div>
-        <h2>{this.props.continent}</h2>
+        <div className={style.containerFlag}>
+          <Link to={`/detail/${this.props.id}`}>
+            <h2>
+              {this.props.name} {`(${this.props.id})`}
+            </h2>
+          </Link>
+          <h2>{this.props.continent.toUpperCase()}</h2>
+        </div>
       </div>
     );
   }

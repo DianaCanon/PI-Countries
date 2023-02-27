@@ -1,0 +1,10 @@
+.containerSort {
+  display: flex;
+  background: #686583;
+  color: aliceblue;
+  gap: 2rem;
+  justify-content: center;
+  padding: 0.4rem 1rem;
+  border: none;
+  border-radius: 5rem;
+}

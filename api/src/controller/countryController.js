@@ -24,12 +24,14 @@ const createDbCountries = async () => {
     const result = (await axios.get("https://restcountries.com/v3/all")).data;
     const dataclean = clearData(result);
     await Country.bulkCreate(dataclean);
-    return await Country.findAll()
-    }
+    return await Country.findAll();
+  }
 };
 
 const consultCountries = async () => {
-  return await Country.findAll();
+  return await Country.findAll({
+    include: [{ model: Activity, through: { attributes: [] } }],
+  });
 };
 
 const getCountryById = async (id) => {
@@ -38,7 +40,7 @@ const getCountryById = async (id) => {
       {
         model: Activity,
         /* attributes: ["name", "difficulty","duration","season"], */
-        through: {attributes: []} // para manejar la visualizacion de la tabla intermedia
+        through: { attributes: [] }, // para manejar la visualizacion de la tabla intermedia
       },
     ],
   });
@@ -46,9 +48,11 @@ const getCountryById = async (id) => {
 
 const dbCountriesByName = async (name) => {
   const findName = await Country.findAll({
-    where : {name : {
-      [Op.iLike] : `%${name}%`
-    }}
+    where: {
+      name: {
+        [Op.iLike]: `%${name}%`,
+      },
+    },
   });
   return findName;
 };

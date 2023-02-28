@@ -1,5 +1,9 @@
+.container {
+  display: flex;
+}
+
 .containerLanding {
-  /*  margin: 0;
+  margin: 0;
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -8,7 +12,5 @@
   background-size: cover;
   height: 100vh;
   color: whitesmoke;
-  text-shadow: 2px 2px 4px #221e1e; */
-  width: "100%";
-  height: "100%";
+  text-shadow: 2px 2px 4px #221e1e;
 }

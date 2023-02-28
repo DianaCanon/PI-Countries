@@ -7,6 +7,7 @@ import FilterBar from "../../components/FilterBar/FilterBar";
 import SortBar from "../../components/SortBar/SortBar";
 import Pagination from "../../components/Pagination/Pagination";
 import SearchBar from "../../components/SearchBar/SearchBar";
+import Loading from "../../components/Loading/Loading";
 import {
   getAllCountries,
   getCountriesPage,
@@ -21,6 +22,11 @@ const Home = (props) => {
   const limit = useSelector((state) => state.limit);
   const countries = useSelector((state) => state.countries);
   const maxPageLimit = useSelector((state) => state.maxPageLimit);
+  const [loaded, setLoaded] = useState(false);
+
+  useEffect(() => {
+    countries.length && setLoaded(true);
+  }, [countries]);
 
   useEffect(() => {
     dispatch(getAllCountries());
@@ -39,19 +45,27 @@ const Home = (props) => {
 
   return (
     <div className={style.containerHome}>
-      <div className={style.containerSearchFilter}>
-        <NavLink to="/">
-          <button className={style.containerBack}>Volver </button>
-        </NavLink>
-        <SearchBar />
-        <FilterBar />
-        <SortBar />
-      </div>
+      {!loaded ? (
+        <Loading />
+      ) : (
+        <>
+          <div className={style.containerSearchFilter}>
+            <SearchBar />
+            <FilterBar />
+            <SortBar />
+          </div>
 
-      <div>
-        <Pagination />
-        <Cards />
-      </div>
+          <div>
+            <Pagination />
+            <Cards />
+          </div>
+          <div className={style.containerButton}>
+            <NavLink to="/">
+              <button className={style.containerBack}>Volver </button>
+            </NavLink>
+          </div>
+        </>
+      )}
     </div>
   );
 };

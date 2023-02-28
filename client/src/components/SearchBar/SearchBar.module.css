@@ -1,4 +1,13 @@
 .containerSearch {
   display: flex;
   flex-direction: row;
+  gap: 1rem;
+  color: white;
+  justify-content: flex-start;
+  align-items: center;
+  padding: 0rem 0 0 1rem;
+}
+
+.containerSearch > img {
+  width: 1.2rem;
 }

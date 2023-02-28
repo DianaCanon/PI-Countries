@@ -7,6 +7,8 @@ const SearchBar = (props) => {
   const dispatch = useDispatch();
 
   const [input, setInput] = useState({});
+  /*   const [search, setSearch] = useState(false); */
+
   const handlerChange = (e) => {
     const value = e.target.value;
     setInput(value);
@@ -15,14 +17,15 @@ const SearchBar = (props) => {
 
   return (
     <div className={style.containerSearch}>
-      <label htmlFor="search">Buscar </label>
+      <label htmlFor="search">Buscar</label>
       <input
         id="search"
         name="search"
         type="search"
         value={input.name}
         onChange={handlerChange}
-      ></input>
+      />
+      <img src="lupa.jpg" alt="lupa" />
     </div>
   );
 };

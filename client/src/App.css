@@ -36,3 +36,26 @@
     transform: rotate(360deg);
   }
 }
+
+input,
+select {
+  padding: 0.5rem;
+  border-radius: 1rem;
+  border: 1px solid transparent;
+}
+
+button {
+  width: min-content;
+  padding: 0.3rem 1rem;
+  border: none;
+  border-radius: 1rem;
+  background: rgb(0 99 255);
+
+  border-bottom-left-radius: none;
+  border-bottom-left-radius: 1re;
+  border: 1;
+  box-shadow: yellowgreen;
+  box-shadow: 0.1rem 0.1rem grey;
+  cursor: pointer;
+  color: white;
+}

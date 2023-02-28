@@ -13,13 +13,17 @@
   flex-direction: column;
   text-align: initial;
   width: 20rem;
+  background: rgb(21 120 222 / 22%);
+  padding: 1rem;
+  border-radius: 1rem;
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 10px 0 rgba(0, 0, 0, 0.19);
 }
 
 .boxForm > div {
   display: flex;
   flex-direction: column;
   justify-content: flex-start;
-  height: 4rem;
+  height: 4.5rem;
 }
 
 .warning {
@@ -32,4 +36,15 @@
 .danger {
   font-size: 0.8rem;
   color: rgb(206, 34, 34);
+}
+
+label {
+  margin-bottom: 0.2rem;
+}
+
+.containerButton {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 3rem;
 }

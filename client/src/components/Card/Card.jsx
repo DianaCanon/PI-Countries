@@ -1,7 +1,7 @@
 import React from "react";
 import { Component } from "react";
 import { connect } from "react-redux";
-import { Link } from "react-router-dom";
+import { NavLink } from "react-router-dom";
 import style from "./Card.module.css";
 
 export class Card extends Component {
@@ -21,12 +21,16 @@ export class Card extends Component {
           />
         </div>
         <div className={style.containerFlag}>
-          <Link to={`/detail/${this.props.id}`}>
-            <h2>
+          <NavLink
+            to={`/detail/${this.props.id}`}
+            className={style.containerText}
+          >
+            <h1>
               {this.props.name} {`(${this.props.id})`}
-            </h2>
-          </Link>
-          <h2>{this.props.continent.toUpperCase()}</h2>
+            </h1>
+          </NavLink>
+          <h3>{this.props.continent.toUpperCase()}</h3>
+          <p>Population: {`${this.props.population}`}</p>
         </div>
       </div>
     );

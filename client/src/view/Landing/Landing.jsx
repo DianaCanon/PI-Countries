@@ -12,14 +12,7 @@ class Landing extends Component {
     return (
       <div className={style.containerLanding}>
         <div>
-          <video
-            className={style.containerLanding}
-            id="myVideo"
-            control-preload="none"
-            playing="true"
-            /*  width="100%"
-            height="100%" */
-          />
+          <video id="myVideo" playing="true" />
           <source src="../../../imagen/mundo-5106.mp4" type="video/mp" />
         </div>
 

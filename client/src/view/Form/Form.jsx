@@ -131,20 +131,21 @@ const Form = () => {
           />
           {errors.country && <span>{errors.country}</span>}
         </div>
-
-        <button
-          type="submit"
-          variant="primary"
-          disabled={
-            errors.name ||
-            errors.difficulty ||
-            errors.duration ||
-            errors.season ||
-            errors.country
-          }
-        >
-          Enviar
-        </button>
+        <div className={style.containerButton}>
+          <button
+            type="submit"
+            variant="primary"
+            disabled={
+              errors.name ||
+              errors.difficulty ||
+              errors.duration ||
+              errors.season ||
+              errors.country
+            }
+          >
+            Enviar
+          </button>
+        </div>
       </form>
     </div>
   );

@@ -14,6 +14,7 @@ const Cards = (props) => {
             name={c.name}
             img_flag={c.img_flag}
             continent={c.continent}
+            population={c.population}
             key={c.IdCountry}
           />
         );

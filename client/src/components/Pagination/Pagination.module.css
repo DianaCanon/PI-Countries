@@ -5,8 +5,15 @@
   flex-wrap: wrap;
 }
 
+.containerPag > button {
+  background: rgba(11, 17, 73, 0.52);
+  color: white;
+  border: none;
+  padding: 0.5rem;
+}
+
 button.active {
-  background-color: rgb(51, 48, 241);
+  background-color: rgb(57, 53, 245);
   color: antiquewhite;
   border-color: transparent;
 }

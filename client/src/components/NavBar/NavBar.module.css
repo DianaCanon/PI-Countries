@@ -18,12 +18,12 @@
 }
 
 .containerNavLink {
-  position: relative;
-  top: 0rem;
+  display: flex;
   color: white;
   text-decoration: none;
   margin-left: 2rem;
   border: none;
+  transition: all 3ms;
 }
 
 .containerImag img {
@@ -35,8 +35,13 @@
 }
 
 .containerNavLink:hover {
-  position: relative;
   background-color: rgb(7, 14, 39);
-  box-shadow: 0rem 0rem 0.8rem 0rem rgba(0, 0, 0, 0.5);
-  padding: 1rem;
+  box-shadow: 0rem 0rem 0.8rem 0rem rgb(0 0 0 / 50%);
+  padding: 1.49rem;
+}
+
+.containerrBox {
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }

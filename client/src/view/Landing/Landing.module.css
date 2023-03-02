@@ -23,7 +23,6 @@
   position: fixed;
   top: 0;
   left: 0;
-  height: 100%;
   width: 100%;
 }
 
@@ -38,7 +37,7 @@
   box-shadow: 0 4px 8px 0 rgb(0 0 0 / 20%), 0 6px 20px 0 rgb(0 0 0 / 19%);
   text-decoration: none;
   padding: 1rem;
-  font-size: 1.5rem;
+  font-size: 1.2rem;
   cursor: pointer;
   border-radius: 7rem;
   color: rgb(34, 34, 34);
@@ -51,5 +50,14 @@
   justify-content: space-around;
   align-items: center;
   z-index: 1;
+}
+
+.containerBox h1 {
   max-width: 40rem;
+}
+
+.containerHome:hover {
+  transform: translateY(-2px) scale(1.005) translateZ(0);
+  box-shadow: 6px 6px 18px 13px rgb(26 26 25 / 47%),
+    0 6px 20px 0 rgb(0 0 0 / 19%);
 }

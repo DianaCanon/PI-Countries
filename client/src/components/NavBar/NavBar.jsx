@@ -5,7 +5,7 @@ import earth from "../../assets/homeTierra.gif";
 const NavBar = () => {
   return (
     <div className={style.containerNavBar}>
-      <div>
+      <div className={style.containerrBox}>
         <NavLink to="/home" className={style.containerNavLink}>
           HOME
         </NavLink>
@@ -14,7 +14,9 @@ const NavBar = () => {
         </NavLink>
       </div>
       <div className={style.containerImag}>
-        <img src={earth} alt="lupa" />
+        <NavLink to="/home">
+          <img src={earth} alt="home" />
+        </NavLink>
       </div>
     </div>
   );

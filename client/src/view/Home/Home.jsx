@@ -58,8 +58,7 @@ const Home = (props) => {
             <FilterBar />
             <SortBar />
             <p className={style.containerShowAll} onClick={handlerClick}>
-              {" "}
-              Mostrar todos{" "}
+              Mostrar todos
             </p>
           </div>
 

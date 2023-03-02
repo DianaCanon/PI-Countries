@@ -1,6 +1,7 @@
 import style from "./Landing.module.css";
 import { NavLink } from "react-router-dom";
 import { Component } from "react";
+import videoCountry from "../../assets/mundo-5106.mp4";
 
 class Landing extends Component {
   // eslint-disable-next-line no-useless-constructor
@@ -11,8 +12,8 @@ class Landing extends Component {
     return (
       <div className={style.containerLanding}>
         <div>
-          <video autoplay="autoplay" loop>
-            <source src="mundo-5106.mp4" type="video/mp4" />
+          <video autoplay="autoplay" loop="loop">
+            <source src={videoCountry} type="video/mp4" />
           </video>
         </div>
         <div className={style.containerBox}>

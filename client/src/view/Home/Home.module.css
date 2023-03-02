@@ -50,7 +50,7 @@
 .containerButton {
   display: flex;
   justify-content: flex-start;
-  padding: 1rem;
+  padding: 0 0 0.5rem 0;
 }
 
 .containerShowAll {

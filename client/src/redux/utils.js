@@ -30,6 +30,10 @@ const optionsContinents = (countries) => {
 const filterCountries = ({ countries, continent, activity }) => {
   let filterTotal = countries;
 
+  if (!continent && !activity) {
+    filterTotal = countries;
+  }
+
   if (continent && !activity) {
     filterTotal = countries?.filter((c) => c.continent === continent);
   }
@@ -40,12 +44,11 @@ const filterCountries = ({ countries, continent, activity }) => {
   }
   if (continent && activity) {
     const aux = countries?.filter((c) => c.continent === continent);
-
     filterTotal = aux.filter((c) =>
       c.Activities.map((a) => a.name).includes(activity)
     );
   }
-
+  console.log(filterTotal);
   return filterTotal;
 };
 

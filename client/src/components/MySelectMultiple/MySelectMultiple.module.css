@@ -14,6 +14,16 @@
   overflow: scroll;
 }
 
+.containerOptions > div {
+  display: flex;
+  cursor: pointer;
+}
+
+.containerOptions label {
+  flex-grow: 1;
+  cursor: pointer;
+}
+
 .select {
   visibility: hidden;
 }

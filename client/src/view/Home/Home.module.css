@@ -9,11 +9,14 @@
 }
 
 .containerSearchFilter {
-  margin-top: 4rem;
   display: flex;
   flex-direction: row;
   flex-wrap: wrap;
-  gap: 0.5rem 1rem;
+  margin-top: 4.2rem;
+  gap: 0.5rem 3rem;
+  background: #82adee;
+  padding: 0.5rem;
+  align-items: center;
 }
 
 .containerBack {
@@ -50,11 +53,22 @@
   padding: 1rem;
 }
 
-.containerLoaded {
-  display: inline-block;
+.containerShowAll {
+  display: flex;
+  flex-direction: row;
+  gap: 0.5rem;
+  color: white;
+  justify-content: center;
+  align-items: center;
+  padding: 0.45rem 0.8rem;
+  background-color: rgba(11, 17, 73, 0.52);
   position: relative;
-  width: 20rem;
-  height: 20rem;
-  transform: rotate(45deg);
-  transform-origin: 20rem 20rem;
+  border-radius: 5rem;
+  height: min-content;
+  margin: 0;
+}
+
+.containerShowAll:hover {
+  transform: translateY(-2px) scale(1.005) translateZ(0);
+  box-shadow: 0 0.5rem 0.8rem 0 rgba(140, 232, 235, 0.904);
 }

@@ -7,10 +7,49 @@
   display: flex;
   flex-direction: column;
   justify-content: center;
-  align-items: center;
   background: url(../../../imagen/imgLanding.jpg) center center no-repeat;
   background-size: cover;
+  align-items: self-end;
+  padding: 0 4rem;
   height: 100vh;
+  font-size: 1.5rem;
   color: whitesmoke;
   text-shadow: 2px 2px 4px #221e1e;
+  overflow: scroll;
+}
+
+.containerLanding video {
+  margin-top: 0rem;
+  position: fixed;
+  top: 0;
+  left: 0;
+  height: 100%;
+  width: 100%;
+}
+
+.containerLanding + h1 {
+  z-index: 1;
+  color: black;
+  font-size: 3rem;
+  text-decoration: none;
+}
+
+.containerHome {
+  box-shadow: 0 4px 8px 0 rgb(0 0 0 / 20%), 0 6px 20px 0 rgb(0 0 0 / 19%);
+  text-decoration: none;
+  padding: 1rem;
+  font-size: 1.5rem;
+  cursor: pointer;
+  border-radius: 7rem;
+  color: rgb(34, 34, 34);
+  background-color: #cfd3dba1;
+}
+
+.containerBox {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  align-items: center;
+  z-index: 1;
+  max-width: 40rem;
 }

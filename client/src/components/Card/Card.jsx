@@ -12,25 +12,29 @@ export class Card extends Component {
 
   render() {
     return (
-      <div className={style.containerCard}>
-        <div className={style.containerFlag}>
-          <img
-            src={this.props.img_flag}
-            alt="imagen bandera"
-            className={style.imagenFlags}
-          />
-        </div>
-        <div className={style.containerFlag}>
-          <NavLink
-            to={`/detail/${this.props.id}`}
-            className={style.containerText}
-          >
-            <h1>
-              {this.props.name} {`(${this.props.id})`}
-            </h1>
-          </NavLink>
-          <h3>{this.props.continent.toUpperCase()}</h3>
-          <p>Population: {`${this.props.population}`}</p>
+      <div className={style.card}>
+        <div className={style.containerCard}>
+          <div className={style.containerFlag}>
+            <NavLink to={`/detail/${this.props.id}`}>
+              <img
+                src={this.props.img_flag}
+                alt="imagen bandera"
+                className={style.imagenFlags}
+              />
+            </NavLink>
+          </div>
+          <div className={style.containerFlag}>
+            <NavLink
+              to={`/detail/${this.props.id}`}
+              className={style.containerText}
+            >
+              <h1>
+                {this.props.name} {`(${this.props.id})`}
+              </h1>
+            </NavLink>
+            <h3>{this.props.continent.toUpperCase()}</h3>
+            <p>Population: {`${this.props.population}`}</p>
+          </div>
         </div>
       </div>
     );

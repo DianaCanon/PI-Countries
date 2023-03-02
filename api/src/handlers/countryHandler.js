@@ -5,8 +5,6 @@ const {
   createDbCountries,
 } = require("../controller/countryController");
 
-
-
 const getCountriesHandler = async (req, res) => {
   const { name } = req.query;
 
@@ -18,9 +16,7 @@ const getCountriesHandler = async (req, res) => {
     } else {
       const resultName = await dbCountriesByName(name);
       !resultName.length
-        ? res
-            .status(404)
-            .send({ msg: `No se encontraron paises que contengan ${name}` })
+        ? res.status(404).send(`No se encontraron paises que contengan ${name}`)
         : res.send(resultName);
     }
   } catch (error) {

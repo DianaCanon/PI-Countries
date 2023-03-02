@@ -24,6 +24,10 @@ const Home = (props) => {
   const maxPageLimit = useSelector((state) => state.maxPageLimit);
   const [loaded, setLoaded] = useState(false);
 
+  const handlerClick = () => {
+    dispatch(getAllCountries());
+  };
+
   useEffect(() => {
     countries.length && setLoaded(true);
   }, [countries]);
@@ -53,10 +57,19 @@ const Home = (props) => {
             <SearchBar />
             <FilterBar />
             <SortBar />
+            <p className={style.containerShowAll} onClick={handlerClick}>
+              {" "}
+              Mostrar todos{" "}
+            </p>
           </div>
 
           <div>
             <Pagination />
+            <div className={style.containerButton}>
+              <NavLink to="/">
+                <button className={style.containerBack}>Volver </button>
+              </NavLink>
+            </div>
             <Cards />
           </div>
           <div className={style.containerButton}>

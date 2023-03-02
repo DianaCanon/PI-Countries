@@ -45,7 +45,10 @@ const MySelectMultiple = (props) => {
         className={style.containerHeader}
       />
       {visibility && (
-        <div className={style.containerOptions}>
+        <div
+          className={style.containerOptions}
+          onMouseLeave={() => setVisibility(false)}
+        >
           {options?.map((opc) => {
             return (
               <div key={opc.id}>

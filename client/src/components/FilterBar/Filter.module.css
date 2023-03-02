@@ -1,10 +1,57 @@
 .containerFilterBar {
   display: flex;
-  background: #686583;
-  color: aliceblue;
+  flex-direction: row;
+  background: rgba(11, 17, 73, 0.52);
   gap: 2rem;
-  justify-content: center;
+  align-items: center;
   padding: 0.4rem 1rem;
   border: none;
   border-radius: 5rem;
+  width: min-content;
+  cursor: pointer;
+  margin: 0.1rem;
+  color: white;
+}
+
+.containerFilterBar:hover {
+  transform: translateY(-2px) scale(1.005) translateZ(0);
+  box-shadow: 0 0.5rem 0.8rem 0 rgba(140, 232, 235, 0.904);
+}
+
+.containerFilter > select {
+  padding: 0.2rem;
+}
+
+.containerHidden {
+  display: none;
+}
+
+.containerVisibility {
+  margin-top: 1rem;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  gap: 0.5rem;
+  padding: 1rem;
+  font-size: small;
+  position: absolute;
+  background-color: rgba(21, 21, 90, 0.788);
+  z-index: 100;
+  border-radius: 1rem;
+  color: white;
+}
+
+.containerOptions > select,
+option {
+  padding: 0.2rem;
+}
+
+.containerFilter {
+  gap: 0.2rem;
+}
+
+.containerFilter {
+  display: flex;
+  gap: 0.5rem;
+  align-items: center;
 }

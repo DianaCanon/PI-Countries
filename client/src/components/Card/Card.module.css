@@ -1,3 +1,13 @@
+.card {
+  position: relative;
+  transition: 0.3s ease-out;
+}
+
+.card:hover {
+  transform: translateY(-5px) scale(1.005) translateZ(0);
+  box-shadow: 0 1rem 2rem 0 rgba(250, 246, 44, 0.904);
+}
+
 .containerCard {
   display: flex;
   flex-direction: row;
@@ -8,15 +18,11 @@
   box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 10px 0 rgba(0, 0, 0, 0.19);
   font-size: x-small;
   line-height: 1.2rem;
-  position: relative;
   width: 22rem;
   height: 9rem;
   background-color: #cfd3db8c;
   padding: 0.5rem;
   gap: 0.5rem;
-}
-
-.containerCard :hover {
 }
 
 .containerFlag {

@@ -1,7 +1,6 @@
 import style from "./Landing.module.css";
 import { NavLink } from "react-router-dom";
 import { Component } from "react";
-//import ReactPlayer from "react-player";
 
 class Landing extends Component {
   // eslint-disable-next-line no-useless-constructor
@@ -12,15 +11,17 @@ class Landing extends Component {
     return (
       <div className={style.containerLanding}>
         <div>
-          <video id="myVideo" playing="true" />
-          <source src="../../../imagen/mundo-5106.mp4" type="video/mp" />
+          <video autoplay="autoplay" loop>
+            <source src="mundo-5106.mp4" type="video/mp4" />
+          </video>
         </div>
+        <div className={style.containerBox}>
+          <h1>Bienvenidos a la App de Countries</h1>
 
-        <h1>Bienvenidos a la App de Countries</h1>
-        <br />
-        <NavLink to="./home">
-          <button>HOME</button>
-        </NavLink>
+          <NavLink to="./home" className={style.containerHome}>
+            <h1>Home</h1>
+          </NavLink>
+        </div>
       </div>
     );
   }

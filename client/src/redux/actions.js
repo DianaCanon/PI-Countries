@@ -35,19 +35,32 @@ export const getDetailCountry = (id) => {
           payload: json,
         })
       )
-      .catch((err) => alert(err.request.response));
+      .catch((err) => {
+        dispatch({
+          type: GET_DETAIL_COUNTRY,
+          payload: err.response.data,
+        });
+        alert(err.response.data);
+      });
   };
 };
 
 export const getCountryByName = (name) => {
-  return async (dispatch) => {
-    const result = await axios.get(
-      `http://localhost:3001/countries?name=${name}`
-    );
-    dispatch({
-      type: GET_COUNTRY_BY_NAME,
-      payload: result.data,
-    });
+  return (dispatch) => {
+    axios
+      .get(`http://localhost:3001/countries?name=${name}`)
+      .then((res) =>
+        dispatch({
+          type: GET_COUNTRY_BY_NAME,
+          payload: res.data,
+        })
+      )
+      .catch((err) => {
+        dispatch({
+          type: GET_COUNTRY_BY_NAME,
+          payload: [],
+        });
+      });
   };
 };
 
@@ -62,7 +75,13 @@ export const createActivity = (activity) => {
           payload: res.data,
         });
       })
-      .catch((err) => alert(err.request.response));
+      .catch((err) => {
+        dispatch({
+          type: ADD_ACTIVITY,
+          payload: [],
+        });
+        alert(err.response.data);
+      });
   };
 };
 

@@ -34,7 +34,7 @@ const Pagination = (props) => {
             disabled={currentPage === pages[0]}
             name="Prev"
           >
-            Previus
+            {"<<"}
           </button>
 
           {pages.map((page) => {
@@ -55,7 +55,7 @@ const Pagination = (props) => {
             disabled={currentPage === pages[pages.length - 1]}
             name="Next"
           >
-            Next
+            {">>"}
           </button>
         </div>
       )}

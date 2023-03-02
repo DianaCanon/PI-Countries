@@ -1,10 +1,34 @@
 .containerSort {
   display: flex;
-  background: #686583;
-  color: aliceblue;
+  flex-direction: row;
+  background: rgba(11, 17, 73, 0.52);
   gap: 2rem;
-  justify-content: center;
-  padding: 0.4rem 1rem;
+  align-items: center;
+  padding: 0.3rem 1rem;
   border: none;
   border-radius: 5rem;
+  width: min-content;
+  cursor: pointer;
+}
+
+.containerSort select {
+  padding: 0.3rem;
+}
+.containerSort p {
+  margin: 0.1rem;
+  color: white;
+}
+
+.containerSelect {
+  display: flex;
+  align-items: center;
+}
+
+.containerHidden {
+  display: none;
+}
+
+.containerSort:hover {
+  transform: translateY(-2px) scale(1.005) translateZ(0);
+  box-shadow: 0 0.5rem 0.8rem 0 rgba(140, 232, 235, 0.904);
 }

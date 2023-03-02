@@ -56,7 +56,22 @@ const Form = () => {
   const handlerSubmit = (event) => {
     event.preventDefault();
     activity.idCountry = selectedCountries;
-    dispatch(createActivity(activity));
+    const newActivity = activity;
+    dispatch(createActivity(newActivity));
+    setActivity({
+      name: "",
+      difficulty: 3,
+      duration: "",
+      season: "",
+      idCountry: [],
+    });
+    setOptionsToSelect(
+      countries
+        .map((c) => {
+          return { id: c.IdCountry, value: c.name, checked: false };
+        })
+        .sort((a, b) => (a.value > b.value ? 1 : -1))
+    );
   };
 
   return (
@@ -131,21 +146,21 @@ const Form = () => {
           />
           {errors.country && <span>{errors.country}</span>}
         </div>
-        <div className={style.containerButton}>
-          <button
-            type="submit"
-            variant="primary"
-            disabled={
-              errors.name ||
-              errors.difficulty ||
-              errors.duration ||
-              errors.season ||
-              errors.country
-            }
-          >
-            Enviar
-          </button>
-        </div>
+
+        <button
+          type="submit"
+          variant="primary"
+          disabled={
+            errors.name ||
+            errors.difficulty ||
+            errors.duration ||
+            errors.season ||
+            errors.country
+          }
+          className={style.containerButton}
+        >
+          Crear Actividad Turistica
+        </button>
       </form>
     </div>
   );

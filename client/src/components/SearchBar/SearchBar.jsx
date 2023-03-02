@@ -2,12 +2,13 @@ import { useState } from "react";
 import { useDispatch } from "react-redux";
 import { getCountryByName } from "../../redux/actions";
 import style from "./SearchBar.module.css";
+import imgSearch from "../../assets/lupa.jpg";
 
 const SearchBar = (props) => {
   const dispatch = useDispatch();
 
   const [input, setInput] = useState({});
-  /*   const [search, setSearch] = useState(false); */
+  const [visibility, setvisibility] = useState(false);
 
   const handlerChange = (e) => {
     const value = e.target.value;
@@ -15,9 +16,14 @@ const SearchBar = (props) => {
     dispatch(getCountryByName(value));
   };
 
+  const handlerClick = () => {
+    setvisibility(!visibility);
+  };
+
   return (
-    <div className={style.containerSearch}>
+    <div className={visibility ? style.containerSearch : style.containerHidden}>
       <label htmlFor="search">Buscar</label>
+
       <input
         id="search"
         name="search"
@@ -25,7 +31,7 @@ const SearchBar = (props) => {
         value={input.name}
         onChange={handlerChange}
       />
-      <img src="lupa.jpg" alt="lupa" />
+      <img src={imgSearch} alt="lupa" onClick={handlerClick} />
     </div>
   );
 };

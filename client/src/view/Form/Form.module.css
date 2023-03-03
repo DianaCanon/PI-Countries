@@ -6,6 +6,7 @@
   background: url("../../../imagen/imgActivity.jpg") center center no-repeat;
   background-size: cover;
   height: 100vh;
+  gap: 2rem;
 }
 
 .boxForm {

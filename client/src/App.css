@@ -52,7 +52,7 @@ button {
   background: rgb(0 99 255);
   border-bottom-left-radius: none;
   border-bottom-left-radius: 1re;
-  border: 1;
+  border: none;
   box-shadow: yellowgreen;
   box-shadow: 0.1rem 0.1rem grey;
   cursor: pointer;

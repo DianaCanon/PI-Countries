@@ -1,6 +1,7 @@
 import {
   ADD_ACTIVITY,
   GET_ALL_COUNTRIES,
+  GET_ALL_ACTIVITIES,
   GET_COUNTRY_BY_NAME,
   GET_DETAIL_COUNTRY,
   GET_COUNTRIES_PAGE,
@@ -12,6 +13,7 @@ import {
   OPTIONS_CONTINENTS,
   OPTIONS_ACTIVITIES,
   ORDER_COUNTRIES_POPULATION,
+  ADD_COUNTRIES_TO_ACTIVITIES,
 } from "./actions.js";
 
 import {
@@ -43,6 +45,8 @@ const reducer = (state = initialState, { type, payload }) => {
   switch (type) {
     case GET_ALL_COUNTRIES:
       return { ...state, countries: payload, currentCountries: payload };
+    case GET_ALL_ACTIVITIES:
+      return { ...state, activities: payload };
     case GET_DETAIL_COUNTRY:
       return { ...state, countryDetail: payload };
     case GET_COUNTRY_BY_NAME:
@@ -73,6 +77,11 @@ const reducer = (state = initialState, { type, payload }) => {
       return { ...state, optionsByActivities: optionsActivities(payload) };
     case ORDER_COUNTRIES_POPULATION:
       return { ...state, currentCountries: sortCountriesPopulation(payload) };
+    case ADD_COUNTRIES_TO_ACTIVITIES:
+      return {
+        ...state,
+        activities: payload,
+      };
     default:
       return { ...state };
   }

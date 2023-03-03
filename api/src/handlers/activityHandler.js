@@ -47,10 +47,9 @@ const putCountryForActivityHandler = async (req, res) => {
       idActivity,
       idsCountries,
     });
-
-    res
-      .status(200)
-      .send(updatedCountryInActivity /* "Pais actualizado correctamente" */);
+    if (!updatedCountryInActivity.length)
+      res.status(404).send("la actividad no fue actualizada");
+    res.status(201).send(updatedCountryInActivity);
   } catch (error) {
     res.status(400).send(error.message);
   }

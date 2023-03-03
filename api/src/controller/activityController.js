@@ -36,8 +36,9 @@ const findActivities = async () => {
 const modifyCountry = async ({ idActivity, idsCountries }) => {
   const findActivity = await Activity.findByPk(idActivity);
 
-  if (!findActivity) return `la actividad ${idActivity} no existe`;
+  if (!findActivity) throw new Error(`la actividad ${idActivity} no existe`);
   await findActivity.addCountries(idsCountries);
+  return await findActivities();
 };
 
 module.exports = { createActivity, findActivities, modifyCountry };

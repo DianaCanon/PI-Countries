@@ -1,6 +1,7 @@
 import axios from "axios";
 
 export const GET_ALL_COUNTRIES = "GET_ALL_COUNTRIES";
+export const GET_ALL_ACTIVITIES = "GET_ALL_ACTIVITIES";
 export const GET_DETAIL_COUNTRY = "GET_DETAIL_COUNTRY";
 export const GET_COUNTRY_BY_NAME = "GET_COUNTRY_BY_NAME";
 export const GET_COUNTRIES_PAGE = "GET_COUNTRIES_PAGE";
@@ -14,6 +15,7 @@ export const FILTER_CONTINENT_ACT = "FILTER_CONTINENT_ACT";
 export const OPTIONS_CONTINENTS = "OPTIONS_CONTINENTS";
 export const OPTIONS_ACTIVITIES = "OPTIONS_ACTIVITIES";
 export const ORDER_COUNTRIES_POPULATION = "ORDER_COUNTRIES_POPULATION";
+export const ADD_COUNTRIES_TO_ACTIVITIES = "ADD_COUNTRIES_TO_ACTIVITIES";
 
 export const getAllCountries = () => {
   return async (dispatch) => {
@@ -81,6 +83,38 @@ export const createActivity = (activity) => {
           payload: [],
         });
         alert(err.response.data);
+      });
+  };
+};
+
+export const getAllActivities = () => {
+  return async (dispatch) => {
+    const response = await axios.get(`/activities`);
+    dispatch({
+      type: GET_ALL_ACTIVITIES,
+      payload: response.data,
+    });
+  };
+};
+
+export const addCountriesInActivities = (
+  idActivity,
+  idsCountries,
+  activities
+) => {
+  return (dispatch) => {
+    axios
+      .put("/activities", { idActivity, idsCountries })
+      .then((res) => {
+        alert("los paises fueron agregados exitosamente a la actividad");
+        dispatch({
+          type: ADD_COUNTRIES_TO_ACTIVITIES,
+          payload: res.data,
+        });
+      })
+      .catch((err) => {
+        alert(err.response.data);
+        dispatch({ type: ADD_COUNTRIES_TO_ACTIVITIES, payload: activities });
       });
   };
 };

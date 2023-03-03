@@ -5,7 +5,7 @@ import { useDispatch, useSelector } from "react-redux";
 import { createActivity, getAllCountries } from "../../redux/actions";
 
 import MySelectMultiple from "../../components/MySelectMultiple/MySelectMultiple";
-import ModifyActivities from "./ModifyActivities";
+import ModifyActivities from "../../components/ModifyActivities/ModifyActivities";
 
 const Form = (props) => {
   const [activity, setActivity] = useState({
@@ -137,7 +137,7 @@ const Form = (props) => {
             <option label="Verano" value="Verano"></option>
             <option label="Otoño" value="Otoño"></option>
             <option label="Invierno" value="Invierno"></option>
-            <option value="Primavera">Primavera</option>
+            <option label="Primavera" value="Primavera"></option>
           </select>
           {errors.season && (
             <span className={style.danger}>{errors.season}</span>

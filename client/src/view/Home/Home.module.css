@@ -66,6 +66,7 @@
   border-radius: 5rem;
   height: min-content;
   margin: 0;
+  cursor: pointer;
 }
 
 .containerShowAll:hover {

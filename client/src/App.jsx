@@ -5,7 +5,8 @@ import "./App.css";
 import axios from "axios";
 
 axios.defaults.baseURL =
-  "https://pi-countries-production-5df7.up.railway.app" /* "http://localhost:3001" */; //para dar la ruta base del back donde irá a buscar
+  /*  */
+  "https://pi-countries-production-5df7.up.railway.app"; /* "http://localhost:3001"; */ //para dar la ruta base del back donde irá a buscar
 
 function App() {
   const location = useLocation().pathname;

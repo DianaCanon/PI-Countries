@@ -50,20 +50,28 @@ const Detail = (props) => {
                 <p>Área: {countryDetail.area}</p>
                 <p>Población: {countryDetail.population}</p>
               </div>
-              <div>
-                <h3>Tourist Activities:</h3>
-                {countryDetail.Activities?.map((act, i) => {
-                  return (
-                    <ul key={`activity${i}`} style={{ textAlign: "left" }}>
-                      <li>Name: {act.name}</li>
-                      <p>Duration: {act.duration}</p>
-                      <p>Difficulty: {act.difficulty}</p>
-                      <p>Season: {act.season}</p>
-                    </ul>
-                  );
-                })}
-              </div>
+
+              {countryDetail.Activities?.length > 0 && (
+                <div>
+                  <h3>Tourist Activities:</h3>
+                  {countryDetail.Activities?.map((act, i) => {
+                    return (
+                      <ul key={`activity${i}`} style={{ textAlign: "left" }}>
+                        <li>Name: {act.name}</li>
+                        <p>Duration: {act.duration}</p>
+                        <p>Difficulty: {act.difficulty}</p>
+                        <p>Season: {act.season}</p>
+                      </ul>
+                    );
+                  })}
+                </div>
+              )}
             </div>
+          </div>
+          <div>
+            <NavLink to="/home">
+              <button style={{ marginBottom: "1rem" }}> Volver</button>
+            </NavLink>
           </div>
         </div>
       )}

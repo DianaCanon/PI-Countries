@@ -5,8 +5,16 @@
   align-items: center;
   background: url("../../../imagen/imgActivity.jpg") center center no-repeat;
   background-size: cover;
+  overflow: auto;
   height: 100vh;
   gap: 2rem;
+}
+
+@media (max-width: 660px) {
+  .containerForm {
+    flex-direction: column;
+    padding-top: 5.4rem;
+  }
 }
 
 .boxForm {
@@ -18,6 +26,12 @@
   padding: 1rem;
   border-radius: 1rem;
   box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 10px 0 rgba(0, 0, 0, 0.19);
+}
+
+@media (max-width: 390px) {
+  .boxForm {
+    width: unset;
+  }
 }
 
 .boxForm > div {

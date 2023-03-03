@@ -68,7 +68,12 @@ const ModifyActivities = () => {
   return (
     <div>
       <form onSubmit={handlerSubmit} className={style.boxForm}>
-        <select id="activity" name="activity" onClick={handlerChange}>
+        <select
+          id="activity"
+          name="activity"
+          onClick={handlerChange}
+          style={{ marginBottom: "1rem" }}
+        >
           <option value={null} label="Actividad a agregar en el pais"></option>
           {optionsActivities &&
             optionsActivities?.map((o, i) => {

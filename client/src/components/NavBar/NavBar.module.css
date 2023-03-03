@@ -14,6 +14,7 @@
   position: fixed;
   z-index: 100;
   width: 100%;
+  height: 4.4rem;
   transition: all 300ms ease;
 }
 
@@ -32,6 +33,12 @@
   box-shadow: 0rem 0rem 2rem 0rem rgb(231 243 245 / 93%);
   position: relative;
   right: 3rem;
+}
+
+@media (max-width: 390px) {
+  .containerImag img {
+    display: none;
+  }
 }
 
 .containerNavLink:hover {

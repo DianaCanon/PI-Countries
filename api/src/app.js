@@ -17,7 +17,7 @@ server.use(morgan("dev"));
 server.use((req, res, next) => {
   res.header(
     "Access-Control-Allow-Origin",
-    "https://pi-countries-4qy9xhtmx-dianacanon.vercel.app/"
+    "https://pi-countries-4qy9xhtmx-dianacanon.vercel.app"
   ); // "http://localhost:3000" PARA PERMITIR QUE LLAME SOLO LOCAL update to match the domain you will make the request from
   res.header("Access-Control-Allow-Credentials", "true");
   res.header(

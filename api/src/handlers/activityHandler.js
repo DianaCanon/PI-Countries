@@ -1,6 +1,7 @@
 const {
   createActivity,
   findActivities,
+  modifyCountry,
 } = require("../controller/activityController");
 
 const postActHandler = async (req, res) => {
@@ -9,14 +10,14 @@ const postActHandler = async (req, res) => {
   try {
     if (!req.body) throw new Error("diligenciar los datos");
 
-    if (!name ) throw new Error("Nombre de la Actividad es un dato obligatorio");
-    if (!difficulty) throw new Error("Dificultad de la Actividad es un dato obligatorio");
-    if (!duration) throw new Error("Duración de la Actividad es un dato obligatorio")
-    if (!season) throw new Error("Temporada es un dato obligatorio")
-    if (!idCountry) throw new Error("Id del País es un dato obligatorio")
-   
-      
-      
+    if (!name) throw new Error("Nombre de la Actividad es un dato obligatorio");
+    if (!difficulty)
+      throw new Error("Dificultad de la Actividad es un dato obligatorio");
+    if (!duration)
+      throw new Error("Duración de la Actividad es un dato obligatorio");
+    if (!season) throw new Error("Temporada es un dato obligatorio");
+    if (!idCountry) throw new Error("Id del País es un dato obligatorio");
+
     const newActivTour = await createActivity(
       name,
       difficulty,
@@ -39,4 +40,24 @@ const getActHandler = async (req, res) => {
   }
 };
 
-module.exports = { postActHandler, getActHandler };
+const putCountryForActivityHandler = async (req, res) => {
+  const { idActivity, idsCountries } = req.body;
+  try {
+    const updatedCountryInActivity = await modifyCountry({
+      idActivity,
+      idsCountries,
+    });
+
+    res
+      .status(200)
+      .send(updatedCountryInActivity /* "Pais actualizado correctamente" */);
+  } catch (error) {
+    res.status(400).send(error.message);
+  }
+};
+
+module.exports = {
+  postActHandler,
+  getActHandler,
+  putCountryForActivityHandler,
+};

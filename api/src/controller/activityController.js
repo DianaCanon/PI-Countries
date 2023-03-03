@@ -33,4 +33,11 @@ const findActivities = async () => {
   });
 };
 
-module.exports = { createActivity, findActivities };
+const modifyCountry = async ({ idActivity, idsCountries }) => {
+  const findActivity = await Activity.findByPk(idActivity);
+
+  if (!findActivity) return `la actividad ${idActivity} no existe`;
+  await findActivity.addCountries(idsCountries);
+};
+
+module.exports = { createActivity, findActivities, modifyCountry };

@@ -10,7 +10,7 @@ const NavBar = () => {
           HOME
         </NavLink>
         <NavLink to="/create" className={style.containerNavLink}>
-          CREATE ACTIVITY
+          CREAR ACTIVIDAD
         </NavLink>
       </div>
       <div className={style.containerImag}>

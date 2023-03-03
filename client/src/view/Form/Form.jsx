@@ -5,8 +5,9 @@ import { useDispatch, useSelector } from "react-redux";
 import { createActivity, getAllCountries } from "../../redux/actions";
 
 import MySelectMultiple from "../../components/MySelectMultiple/MySelectMultiple";
+import ModifyActivities from "./ModifyActivities";
 
-const Form = () => {
+const Form = (props) => {
   const [activity, setActivity] = useState({
     name: "",
     difficulty: 3,
@@ -76,6 +77,10 @@ const Form = () => {
 
   return (
     <div className={style.containerForm}>
+      <div>
+        <ModifyActivities />
+      </div>
+
       <form onSubmit={handlerSubmit} className={style.boxForm}>
         <div>
           <label htmlFor="name">Nombre de la actividad Turistica </label>

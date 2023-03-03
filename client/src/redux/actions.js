@@ -17,7 +17,7 @@ export const ORDER_COUNTRIES_POPULATION = "ORDER_COUNTRIES_POPULATION";
 
 export const getAllCountries = () => {
   return async (dispatch) => {
-    const response = await axios.get("http://localhost:3001/countries");
+    const response = await axios.get(`/countries`);
     dispatch({
       type: GET_ALL_COUNTRIES,
       payload: response.data,
@@ -27,7 +27,7 @@ export const getAllCountries = () => {
 
 export const getDetailCountry = (id) => {
   return (dispatch) => {
-    return fetch(`http://localhost:3001/countries/${id}`)
+    return fetch(`/countries/${id}`)
       .then((response) => response.json())
       .then((json) =>
         dispatch({
@@ -48,7 +48,7 @@ export const getDetailCountry = (id) => {
 export const getCountryByName = (name) => {
   return (dispatch) => {
     axios
-      .get(`http://localhost:3001/countries?name=${name}`)
+      .get(`/countries?name=${name}`)
       .then((res) =>
         dispatch({
           type: GET_COUNTRY_BY_NAME,
@@ -67,7 +67,7 @@ export const getCountryByName = (name) => {
 export const createActivity = (activity) => {
   return (dispatch) => {
     axios
-      .post("http://localhost:3001/activities", activity)
+      .post(`/activities`, activity)
       .then((res) => {
         alert(res.data);
         return dispatch({

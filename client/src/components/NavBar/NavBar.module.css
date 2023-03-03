@@ -33,6 +33,7 @@
   box-shadow: 0rem 0rem 2rem 0rem rgb(231 243 245 / 93%);
   position: relative;
   right: 3rem;
+  cursor: pointer;
 }
 
 @media (max-width: 390px) {

@@ -18,7 +18,7 @@ server.use((req, res, next) => {
   res.header(
     "Access-Control-Allow-Origin",
     "https://pi-countries-rust.vercel.app"
-  ); // "http://localhost:3000" PARA PERMITIR QUE LLAME SOLO LOCAL update to match the domain you will make the request from
+  ); // "http://localhost:3000"  // "https://pi-countries-rust.vercel.app" PARA PERMITIR QUE LLAME SOLO LOCAL update to match the domain you will make the request from
   res.header("Access-Control-Allow-Credentials", "true");
   res.header(
     "Access-Control-Allow-Headers",

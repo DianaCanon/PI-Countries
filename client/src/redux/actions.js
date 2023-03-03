@@ -27,12 +27,12 @@ export const getAllCountries = () => {
 
 export const getDetailCountry = (id) => {
   return (dispatch) => {
-    return fetch(`/countries/${id}`)
-      .then((response) => response.json())
-      .then((json) =>
+    return axios
+      .get(`/countries/${id}`)
+      .then((res) =>
         dispatch({
           type: GET_DETAIL_COUNTRY,
-          payload: json,
+          payload: res.data,
         })
       )
       .catch((err) => {

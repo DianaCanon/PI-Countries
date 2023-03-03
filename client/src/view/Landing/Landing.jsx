@@ -12,7 +12,7 @@ class Landing extends Component {
     return (
       <div className={style.containerLanding}>
         <div>
-          <video autoplay="autoplay" loop="loop">
+          <video autoPlay="autoplay" loop="loop">
             <source src={videoCountry} type="video/mp4" />
           </video>
         </div>

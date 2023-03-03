@@ -48,7 +48,7 @@ const filterCountries = ({ countries, continent, activity }) => {
       c.Activities.map((a) => a.name).includes(activity)
     );
   }
-  console.log(filterTotal);
+
   return filterTotal;
 };
 

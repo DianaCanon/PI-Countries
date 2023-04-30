@@ -6,6 +6,9 @@
   <img height="200" src="./countries.png" />
 </p>
 
+
+## Objetivos del proyecto
+
 PI Countries es una aplicación en la cual se puede ver información de  distintos paises utilizando la api externa [restcountries](https://restcountries.com/) y a partir de ella se puede:
 - Buscar paises
 - Filtrarlos / Ordenarlos
@@ -13,11 +16,10 @@ PI Countries es una aplicación en la cual se puede ver información de  distint
 
 
 
-## TECNOLOGIAS USADAS
+## Tecnologías del proyecto
+- React | Redux | Node | Sequelize | HTML | CSS
 
-- App que utiliza React, Redux, Node y Sequelize.
-
-# CONFIGURANDO PARA INGRESAR
+### Instalación Previa
 En `api` crear un archivo llamado: `.env` que tenga la siguiente forma:
 
 ```env
@@ -28,4 +30,16 @@ DB_HOST=localhost
 
 Reemplazar `usuariodepostgres` y `passwordDePostgres` con tus propias credenciales para conectarte a postgres. Este archivo va ser ignorado en la subida a github, ya que contiene información sensible (las credenciales).
 
+### Instalación 
 
+Utilice instalador de paquetes npm  para instalar. Se debe instalar estando dentro de la carpeta `api` y luego dentro de la carpeta `client`
+
+`npm install`
+
+### Ejecución local 
+
+Estando dentro de la carpeta `api` y luego dentro de la carpeta `client` se ejecuta el siguiente comando
+
+`npm start`
+
+Espero lo disfruten... :blush: :blush:
